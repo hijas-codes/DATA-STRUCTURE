@@ -1,57 +1,90 @@
-#include<stdio.h>
-void main()
-{
-        int i=0,j=0,k=0;
-        int n,m;
-        int a[10],b[10],c[20];
-        printf("Enter the number of elements in the array1:");
-        scanf("%d",&n);
-        printf("Enter the number of elements in the array2:");
-        scanf("%d",&m);
-        printf("ENTER FIRST SORTED ARRAY\n");
-        for(int x=0;x<n;x++)
-        {
-                printf("Enter the element%d in array1:",x+1);
-                scanf("%d",&a[x]);
+#include <stdio.h>
+int main() {
+    int i, j, k, x, y, temp;
+    printf("Enter the size of the first array: ");
+    scanf("%d", &y);
+    printf("Enter the items for the first array:\n");
+    int a[y];
+    for (i = 0; i < y; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    printf("Enter the size of the second array: ");
+    scanf("%d", &x);
+    int b[x];
+    printf("Enter the items for the second array:\n");
+    for (i = 0; i < x; i++) {
+        scanf("%d", &b[i]);
+    }
+
+    printf("\nBefore sorting first array:\n");
+    for(i=0;i<y;i++) {
+        printf("%d  ",a[i]);
+    }
+
+    printf("\nBefore sorting  second array:\n");
+    for(i=0;i<x;i++) {
+        printf("%d  ",b[i]);
+    }
+
+    // Sort the first array
+    for (i = 0; i < y; i++) {
+        for (j = i + 1; j < y; j++) {
+            if (a[i] > a[j]) {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
         }
-        printf("ENTER SECOND SORTED ARRAY\n");
-        for(int y=0;y<m;y++)
-        {
-                printf("Enter the element%d in array2:",y+1);
-                scanf("%d",&b[y]);
+    }
+
+    // Sort the second array
+    for (i = 0; i < x; i++) {
+        for (j = i + 1; j < x; j++) {
+            if (b[i] > b[j]) {
+                temp = b[i];
+                b[i] = b[j];
+                b[j] = temp;
+            }
         }
-        while(i<n && j<m)
-        {
-                if(a[i]>=b[j])
-                {
-                        c[k]=b[j];
-                        k++;
-                        j++;
-                }
-                else
-                {
-                        c[k]=a[i];
-                        i++;
-                        k++;
-                }
+    }
+
+    // Merge the two arrays
+    k = 0;
+    i = j = 0;
+    int p;
+    p=x+y;
+    int c[p];
+    while (i < y && j < x) {
+        if (a[i] > b[j]) {
+            c[k++] = b[j++];
+        } else {
+            c[k++] = a[i++];
         }
-        while(i<n)
-        {
-                c[k]=a[i];
-                k++;
-                i++;
-        }
-        while(j<m)
-        {
-                c[k]=b[j];
-                k++;
-                j++;
-        }
-        for(int z=0;z<k;z++)
-        {
-                printf("%d",c[z]);
-        }
-       
+    }
+    while (i < y) {
+        c[k++] = a[i++];
+    }
+    while (j < x) {
+        c[k++] = b[j++];
+    }
+
+    // Print the results
+    printf("\nResult after sorting first array: \n");
+    for (i = 0; i < y; i++) {
+        printf("%d  ", a[i]);
+    }
+
+    printf("\nResult after sorting second array: \n");
+    for (i = 0; i < x; i++) {
+        printf("%d  ", b[i]);
+    }
+
+    printf("\nAfter merging first and second array: \n");
+    for (i = 0; i < k; i++) {
+        printf("%d  ", c[i]);
+    }
+    printf("\n");
+
+    return 0;
 }
-
-
