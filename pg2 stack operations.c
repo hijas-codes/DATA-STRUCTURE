@@ -47,7 +47,7 @@ scanf("%d",&size);
 while(z=1)
 {
     printf("select any option :\n  1 PUSH\n 2 POP\n 3 DISPLAY \n  4 BREAK ");
-    scanf("%d",ch);
+    scanf("%d",&ch);
 		switch(ch){
 			case 1:
 			printf("\n Enter element to push");
