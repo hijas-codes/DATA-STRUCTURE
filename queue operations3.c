@@ -56,7 +56,23 @@ void main()
     scanf("%d",&size);
     while(z=1)
     {
-        printf("select any option 1.insert 2.delete 3.display")
-    }
+        printf("select any option 1.insert 2.delete 3.display");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+        case 1:
+       	 enqueue();
+       	 break;
+        case 2:
+        	dequeue();
+        	break;
+        case 3:
+       	 display();
+        	break;
+        default:
+        printf("invalid choice");
+       }
+       }
+       }
+       
     
-}
