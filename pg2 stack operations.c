@@ -43,7 +43,7 @@ void display(){
 	}
 }
 printf("enter the size of the stack");
-scanf("%d",size);
+scanf("%d",&size);
 while(z=1)
 {
     printf("select any option :\n  1 PUSH\n 2 POP\n 3 DISPLAY \n  4 BREAK ");
